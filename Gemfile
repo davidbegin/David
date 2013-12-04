@@ -14,6 +14,7 @@ gem 'devise'
 gem 'faker'
 gem 'debugger'
 gem 'simple_form'
+gem 'font-awesome-rails'
 
 group :test do
 	gem 'rspec-rails'
