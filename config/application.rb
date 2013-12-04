@@ -9,6 +9,7 @@ Bundler.require(:default, Rails.env)
 
 module David
   class Application < Rails::Application
+		config.i18n.enforce_available_locales = false 
 		config.generators do |g|
 			g.helper false
 			g.javascripts false
