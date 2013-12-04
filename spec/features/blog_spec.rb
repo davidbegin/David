@@ -39,8 +39,58 @@ describe "Creating a new blog" do
 	end
 
 	context "when not signed in" do
-		it "redirects to the homepage" do
+		it "redirects to the sign in page" do
 			visit new_blog_path
+			expect(current_path).to eq new_admin_session_path
+		end
+	end
+end
+
+describe "Editing a Blog" do
+	before :each do 
+		@blog = create(:blog)
+	end
+
+	context "when signed in" do 
+		before :each do
+			admin = create(:admin)
+			login_as(admin, scope: :admin)
+		end
+
+		context "with valid params" do
+			before :each do 
+				visit edit_blog_path(@blog)
+				fill_in :blog_title, with: 'Awesome Title'
+				fill_in :blog_body, with: 'Check em'
+				click_button 'Update Blog'
+			end
+			
+			it "updates the blog" do 
+				expect(page).to have_content 'Awesome Title'
+				expect(page).to have_content 'Check em'
+			end
+
+			it "redirects to the newly updated blog" do
+				expect(current_path).to eq blog_path(@blog)
+			end
+		end
+
+		context "with invalid params" do
+			before :each do
+				visit edit_blog_path(@blog)
+				fill_in :blog_title, with: nil
+				click_button 'Update Blog'
+			end
+
+			it "renders the edit page" do
+				expect(current_path).to eq edit_blog_path(@blog)
+			end
+		end
+	end
+
+	context "when not signed in" do
+		it "redirects to to the sign in page" do
+			visit edit_blog_path(@blog)
 			expect(current_path).to eq new_admin_session_path
 		end
 	end

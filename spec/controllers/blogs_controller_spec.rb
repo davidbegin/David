@@ -39,4 +39,44 @@ describe BlogsController do
 			end
 		end
 	end
+
+	describe "#edit" do 
+		it "finds and assigns the correct blog" do
+			@blog = create(:blog)
+			get :edit, id: @blog.id
+			expect(assigns(:blog)).to eq @blog
+		end
+	end
+
+	describe "#update" do 
+		before :each do
+			@blog = create(:blog)
+		end
+
+		context "with valid params" do
+			before :each do
+				patch :update, id: @blog.id, blog: { title: 'Woah', body: 'Nice' }
+			end
+
+			it "updates the blog" do
+				@blog.reload
+				expect(@blog.title).to eq 'Woah'
+				expect(@blog.body).to eq 'Nice'
+			end
+
+			it "redirects to the newly updated blog" do
+				expect(response).to redirect_to @blog
+			end
+		end
+
+		context "without valid params" do
+			xit "renders the edit page again" do
+				patch :update, id: @blog.id, blog: { title: nil }
+				expect(response).to eq redirect_to edit_blog_path(@blog)
+			end
+		end
+	end
 end
+
+
+
