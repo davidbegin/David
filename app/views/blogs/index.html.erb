@@ -1,6 +1,19 @@
-<% @blogs.each do |blog| %>
-	<%= image_tag blog.pic.url(:thumb) %>
-	<%= blog.time %>
-	<h3><%= link_to blog.title, blog %></h3>
-	<p><%= markdown blog.body %></p>
-<% end %>
+<div class="blog_wrapper">
+	<% @blogs.each do |blog| %>
+		<div class="row">
+			<div class="large-2 columns pic_and_time">
+				<%= image_tag blog.pic.url(:thumb) %>
+				<div class="time"><%= blog.time %></div>
+			</div>
+
+			<div class="large-10 columns blog">
+				<h3><%= link_to blog.title, blog %></h3>
+			</div>
+		</div>
+
+		<div class="large-11 columns large-centered body">
+			<%= markdown blog.body %>
+		</div>
+		<hr />
+	<% end %>
+</div>

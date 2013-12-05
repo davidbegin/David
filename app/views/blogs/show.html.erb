@@ -1,9 +1,18 @@
-<%= image_tag @blog.pic(:thumb) %>
-<%= @blog.time %>
+<div class="blog_wrapper">
+	<div class="large-2 columns pic_and_time">
+		<%= image_tag @blog.pic.url(:thumb) %>
+		<div class="time"><%= @blog.time %></div>
+	</div>
 
-<h2><%= @blog.title %></h2>
+	<div class="large-10 columns blog">
+		<h3><%= link_to @blog.title, @blog %></h3>
+	</div>
 
-<p><%= markdown @blog.body %><p>
+	<div class="large-11 columns large-centered body">
+		<%= markdown @blog.body %>
+	</div>
+	<hr />
+<div>
 
 <% if admin_signed_in? %>
 	<%= link_to 'Edit', edit_blog_path(@blog), class: 'button' %>
