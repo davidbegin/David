@@ -1,4 +1,6 @@
 <% @blogs.each do |blog| %>
+	<%= image_tag blog.pic.url(:thumb) %>
+	<%= blog.time %>
 	<h3><%= link_to blog.title, blog %></h3>
 	<p><%= markdown blog.body %></p>
 <% end %>
