@@ -1,8 +1,8 @@
 <div class="blog_form_wrapper">
-<%= simple_form_for @blog do |f| %>
-	<%= f.input :title %>
-	<%= f.input :body %>
-	<%= f.input :pic %>
-	<%= f.button :submit, "Create Blog" %>
-<% end %>
+	<%= simple_form_for @blog do |f| %>
+		<%= f.input :title %>
+		<%= f.input :body %>
+		<%= f.input :pic %>
+		<%= f.button :submit %>
+	<% end %>
 </div>
