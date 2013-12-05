@@ -95,3 +95,34 @@ describe "Editing a Blog" do
 		end
 	end
 end
+
+describe "Deleting a Blog" do
+	before :each do
+		@blog = create(:blog)
+	end
+
+	context "when signed in" do
+		before :each do
+			admin = create(:admin)
+			login_as(admin, scope: :admin)
+			visit blog_path(@blog)
+			click_link 'Destroy'
+		end
+
+		it "destroys the blog" do
+			expect(page).not_to have_content @blog.title
+			expect(page).not_to have_content @blog.body
+		end
+
+		it "redirects you to the blogs index" do
+			expect(current_path).to eq blogs_path
+		end
+	end
+
+	context "when not signed in" do
+		it "has no visible delete button" do
+			visit blog_path(@blog)
+			expect(page).not_to have_link 'Destroy'
+		end
+	end
+end

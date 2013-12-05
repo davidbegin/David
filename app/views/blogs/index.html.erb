@@ -1,0 +1,4 @@
+<% @blogs.each do |blog| %>
+	<h3><%= blog.title %></h3>
+	<p><%= markdown blog.body %></p>
+<% end %>

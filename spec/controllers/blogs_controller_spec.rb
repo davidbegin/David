@@ -76,6 +76,31 @@ describe BlogsController do
 			end
 		end
 	end
+
+	describe "#destroy" do
+		before :each do
+			@blog = create(:blog)
+		end
+
+		it "destroys the blog" do
+			expect{
+				delete :destroy, id: @blog.id	
+			}.to change(Blog, :count).by(-1)
+		end
+
+		it "redirects to the blogs index" do
+			delete :destroy, id: @blog.id	
+			expect(response).to redirect_to blogs_path
+		end
+	end
+
+	describe "#index" do
+		it "grabs all the blogs from the db" do
+			@blog = create(:blog)
+			get :index
+			expect(assigns(:blogs)).to match_array [@blog]
+		end
+	end
 end
 
 

@@ -1,3 +1,7 @@
 <h2><%= @blog.title %></h2>
 
 <p><%= markdown @blog.body %><p>
+
+<% if admin_signed_in? %>
+	<%= link_to 'Destroy', blog_path, method: :delete %>
+<% end %>

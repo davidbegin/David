@@ -5,6 +5,10 @@ class BlogsController < ApplicationController
 		@blog = Blog.find(params[:id])
 	end
 
+	def index
+		@blogs = Blog.all
+	end
+
 	def new
 		@blog = Blog.new
 	end
@@ -37,6 +41,12 @@ class BlogsController < ApplicationController
 			redirect_to edit_blog_path(@blog)	
 			flash[:error] = "Error updating blog"
 		end
+	end
+
+	def destroy
+		@blog = Blog.find(params[:id])
+		@blog.destroy
+		redirect_to blogs_path
 	end
 
 	private
