@@ -3,7 +3,11 @@
 		<h1><%= link_to 'David Begin', root_path %> </h1>
 	</div>
 	<div class="large-3 medium-4 small-6 columns">
-		<%= fa_icon "github" %>
-		<%= fa_icon "envelope-o" %>
+		<%= link_to 'https://github.com/presidentJFK', class: 'github' do %>
+			<%= fa_icon "github" %>
+		<% end %>
+		<%= link_to "mailto:davidmichaelbe@gmail.com?subject=Hello David!" do %>
+			<%= fa_icon "envelope-o" %>
+		<% end %>
 	</div>
 </div>
