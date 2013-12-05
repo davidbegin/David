@@ -46,6 +46,23 @@ describe "Creating a new blog" do
 	end
 end
 
+
+describe "Creating a blog with a pic" do
+	before :each do
+		admin = create(:admin)
+		login_as(admin, scope: :admin)
+	end
+
+	it "should save the pic in the db" do
+		visit new_blog_path
+		fill_in :blog_title, with: 'Return of the Mac'
+		fill_in :blog_body, with: 'Once again!'
+		attach_file('blog[pic]', "#{Rails.root}/app/assets/images/kufa_gate.jpg")
+		click_button "Create Blog"
+		expect(page).to have_css("img", "kufa_gate.jpg")
+	end
+end
+
 describe "Editing a Blog" do
 	before :each do 
 		@blog = create(:blog)

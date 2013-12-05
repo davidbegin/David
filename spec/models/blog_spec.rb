@@ -12,6 +12,11 @@ describe Blog do
 	it "is invalid without a body" do 
 		expect(Blog.new(body: nil)).to have(1).errors_on(:body)
 	end
+
+	it "can have a pic" do
+		blog = Blog.new(title: 'Title', body: 'Body', pic: File.new("#{Rails.root}/app/assets/images/kufa_gate.jpg"))
+		expect(blog).to be_valid
+	end
 end
 
 describe "Blogs Factory" do

@@ -15,6 +15,7 @@ gem 'faker'
 gem 'debugger'
 gem 'simple_form'
 gem 'font-awesome-rails'
+gem 'paperclip'
 
 group :test do
 	gem 'rspec-rails'

@@ -24,6 +24,17 @@ describe BlogsController do
 				post :create, blog: attributes_for(:blog)
 				expect(response).to redirect_to Blog.last
 			end
+
+			it "can add a pic" do
+				expect {post :create, blog: {
+					title: 'Awesome Stuff',
+					body: 'Surriosly',
+					pic: fixture_file_upload('app/assets/images/kufa_gate.jpg', 'images/jpg')
+				}}.to change(Blog, :count).by(1)
+				blog = Blog.last
+				blog.reload
+				expect(blog.pic_file_name).to eq 'kufa_gate.jpg'
+			end
 		end
 
 		context "with invalid params" do
