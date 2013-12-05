@@ -1,5 +1,7 @@
-<%= simple_form_for @blog do |f| %>
-	<%= f.input :title %>
-	<%= f.input :body %>
-	<%= f.button :submit, "Update Blog" %>
-<% end %>
+<div class="new_blog_wrapper">
+	<%= simple_form_for @blog do |f| %>
+		<%= f.input :title %>
+		<%= f.input :body %>
+		<%= f.button :submit, "Update Blog" %>
+	<% end %>
+</div>

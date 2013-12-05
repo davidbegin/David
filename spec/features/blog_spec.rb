@@ -57,6 +57,11 @@ describe "Editing a Blog" do
 			login_as(admin, scope: :admin)
 		end
 
+		it "has a visible edit link" do
+			visit blog_path(@blog)
+			expect(page).to have_link 'Edit'
+		end
+
 		context "with valid params" do
 			before :each do 
 				visit edit_blog_path(@blog)
@@ -89,6 +94,11 @@ describe "Editing a Blog" do
 	end
 
 	context "when not signed in" do
+		it "does not have an edit link" do
+			visit blog_path(@blog)
+			expect(page).not_to have_link 'Edit'
+		end
+
 		it "redirects to to the sign in page" do
 			visit edit_blog_path(@blog)
 			expect(current_path).to eq new_admin_session_path

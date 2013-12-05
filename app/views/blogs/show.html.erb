@@ -3,5 +3,6 @@
 <p><%= markdown @blog.body %><p>
 
 <% if admin_signed_in? %>
-	<%= link_to 'Destroy', blog_path, method: :delete %>
+	<%= link_to 'Edit', edit_blog_path(@blog), class: 'button' %>
+	<%= link_to 'Destroy', blog_path, method: :delete, class: 'button' %>
 <% end %>

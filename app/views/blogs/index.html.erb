@@ -1,4 +1,4 @@
 <% @blogs.each do |blog| %>
-	<h3><%= blog.title %></h3>
+	<h3><%= link_to blog.title, blog %></h3>
 	<p><%= markdown blog.body %></p>
 <% end %>
