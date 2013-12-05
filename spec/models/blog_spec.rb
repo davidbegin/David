@@ -17,6 +17,14 @@ describe Blog do
 		blog = Blog.new(title: 'Title', body: 'Body', pic: File.new("#{Rails.root}/app/assets/images/kufa_gate.jpg"))
 		expect(blog).to be_valid
 	end
+
+	describe "time" do
+		it "returns the time created formatted" do
+			time = Time.parse("18/12/2013")
+			blog = Blog.create(title: 'Poker Face', body: "Ma ma ma mah", created_at: time)
+			expect(blog.time).to eq "Dec. 18, 2013"
+		end
+	end
 end
 
 describe "Blogs Factory" do
