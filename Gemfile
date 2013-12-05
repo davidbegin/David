@@ -16,6 +16,7 @@ gem 'debugger'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'paperclip'
+gem 'paperclip-compression'
 
 group :test do
 	gem 'rspec-rails'
