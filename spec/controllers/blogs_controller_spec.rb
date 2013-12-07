@@ -79,13 +79,6 @@ describe BlogsController do
 				expect(response).to redirect_to @blog
 			end
 		end
-
-		context "without valid params" do
-			xit "renders the edit page again" do
-				patch :update, id: @blog.id, blog: { title: nil }
-				expect(response).to eq redirect_to edit_blog_path(@blog)
-			end
-		end
 	end
 
 	describe "#destroy" do

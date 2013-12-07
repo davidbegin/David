@@ -18,4 +18,11 @@ describe "Nav" do
 			expect(page).to have_selector "a[href='#{href}']"
 		end
 	end
+
+	describe "portfolio" do
+		it "links to portfolio page" do
+			click_link 'Portfolio'
+			expect(current_path).to eq portfolio_path
+		end
+	end
 end
