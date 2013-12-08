@@ -1,10 +1,10 @@
 .header_wrapper {
-	margin-top: 20px;
 	
 	.header {
 		font-size: 5em;	
 		font-weight: 100;
 		margin-bottom: 15px;
+		margin-top: 25px;
 		
 		a {
 			color: #fff;	
@@ -12,6 +12,7 @@
 	}
 
 	.icons {
+		margin-top: 20px;
 	}
 
 	.icons .fa {
@@ -22,7 +23,9 @@
 	}
 	
 	.menu {
+		display: inline;
 		list-style: none;	
+		width: 100%;
 
 		li {
 			display: inline;
@@ -31,15 +34,11 @@
 		.github, .email {
 			display: none;	
 		}
-	}
-
-	.nav {
-		text-align: center;
 
 		a {
 			font-size: 3em;	
 			color: #fff;
-			margin: 0 1em;
+			margin: 0 .5em;
 			font-weight: 100;
 		}
 	}
@@ -50,7 +49,7 @@
 	float: right;
 
 	.fa-bars {
-		margin-right: 10px;
+		margin: 20px;
 		color: #fff;	
 		font-size: 3em;
 		cursor: pointer;
@@ -58,19 +57,23 @@
 }
 
 @media (max-width: 1250px) {
+	.header_link {
+		font-size: 70px;
+	}
+	
 	.icons .fa {
 		margin:  .7em .3em 0 .3em;
 		font-size: 2.5em;	
 	}
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 	.header_wrapper {
-	
 		.menu {
 			text-align: left;
 			display: none;
 			background: rgba(#999, .5);
+			width: 170%;
 
 			li {
 				display: block;	
@@ -89,9 +92,7 @@
 			display: none;	
 		}
 	}
-}
-
-@media (max-width: 900px) {
+	
 	.bars_wrapper {
 		display: block;	
 	}

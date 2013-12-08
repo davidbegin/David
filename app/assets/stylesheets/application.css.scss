@@ -15,15 +15,9 @@
  */
 
 #body {
-	background-image: asset-url('background.jpg');
-	background: asset-url('background.jpg');
-
-	// works locally not in production
-	background: url('background.jpg');
-
-	background-image: image_path('background.jpg');
-	background-image: image('background.jpg');
-
-	// works locally
+	// background: rgba(#5D5D5D, .7);
+	background: #888;
 	background-image: url('background.jpg');
+	background-image: image-url('background.jpg');
+	background-repeat: no-repeat;
 }
