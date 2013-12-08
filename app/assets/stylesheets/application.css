@@ -13,3 +13,9 @@
  *= require font-awesome
  *= require_tree .
  */
+
+#body {
+	background: url('rooster_columbia.jpg');
+	background: url('Rainforest.jpg');
+	background: url('Sellwood_Stump.jpg');
+}

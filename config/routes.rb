@@ -4,5 +4,6 @@ David::Application.routes.draw do
 	get "/portfolio", to: 'main#portfolio', as: :portfolio
 	get "/about", to: 'main#about', as: :about
   devise_for :admins
-	root to: 'blogs#index'
+	# root to: 'blogs#index'
+	root to: 'main#portfolio'
 end

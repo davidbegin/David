@@ -34,7 +34,7 @@ describe "Nav" do
 	end
 
 	describe "Blog" do
-		it "links to the blogs or home" do
+		xit "links to the blogs or home" do
 			visit about_path
 			click_link 'Blog'
 			expect(current_path).to eq root_path

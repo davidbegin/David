@@ -11,16 +11,21 @@
 		<%= csrf_meta_tags %>
 	</head>
 
-	<body class="row">
+	<body class="row" id="body">
 
-		<%= render 'layouts/header' %>
-		<%= render 'layouts/flash' %>
+		<div class="large-11 columns large-centered">
 
-		<% if admin_signed_in? %>
-			<%= render 'layouts/admin_nav' %>
-		<% end %>
+			<%= render 'layouts/header' %>
+			<%= render 'layouts/flash' %>
 
-		<%= yield %>
+			<% if admin_signed_in? %>
+				<%= render 'layouts/admin_nav' %>
+			<% end %>
+
+			<%= yield %>
+
+		</div>
+
 		<%= javascript_include_tag "application" %>
 	</body>
 </html>

@@ -1,10 +1,98 @@
 .header_wrapper {
-	h1 {
+	margin-top: 20px;
+	
+	.header {
 		font-size: 5em;	
+		font-weight: 100;
+		margin-bottom: 15px;
+		
+		a {
+			color: #fff;	
+		}
 	}
 
-	.fa {
-		margin: .7em .5em 0 .5em;
+	.icons {
+	}
+
+	.icons .fa {
+		margin: 0 .5em;
+		float: right;
 		font-size: 3em;	
+		color: #fff;
+	}
+	
+	.menu {
+		list-style: none;	
+
+		li {
+			display: inline;
+		}
+
+		.github, .email {
+			display: none;	
+		}
+	}
+
+	.nav {
+		text-align: center;
+
+		a {
+			font-size: 3em;	
+			color: #fff;
+			margin: 0 1em;
+			font-weight: 100;
+		}
+	}
+}
+
+.bars_wrapper {
+	display: none;
+	float: right;
+
+	.fa-bars {
+		margin-right: 10px;
+		color: #fff;	
+		font-size: 3em;
+		cursor: pointer;
+	}
+}
+
+@media (max-width: 1250px) {
+	.icons .fa {
+		margin:  .7em .3em 0 .3em;
+		font-size: 2.5em;	
+	}
+}
+
+@media (max-width: 900px) {
+	.header_wrapper {
+	
+		.menu {
+			text-align: left;
+			display: none;
+			background: rgba(#999, .5);
+
+			li {
+				display: block;	
+
+				a {
+					font-size: 2em;	
+				}
+			}
+
+			.github, .email {
+				display: block;
+			}
+		}
+
+		.icons {
+			display: none;	
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.bars_wrapper {
+		display: block;	
 	}
 }

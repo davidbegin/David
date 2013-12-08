@@ -17,3 +17,9 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+	$('.fa-bars').click(function(){
+		$('.header_wrapper .menu').slideToggle();
+	});
+});
