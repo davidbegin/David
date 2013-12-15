@@ -18,6 +18,8 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){
+	$(".alert-box").fadeOut(3000);
+	
 	$('.fa-bars').click(function(){
 		$('.header_wrapper .menu').slideToggle();
 	});
